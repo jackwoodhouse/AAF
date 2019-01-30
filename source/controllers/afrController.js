@@ -5,15 +5,12 @@ import { ContactSchema } from '../models/afrModel';
 const Contact = mongoose.model('Contact', ContactSchema);
 
 export const addNewContact = (req, res) => {
-
-    let newContact = new Contact(req.body);
-
-    newContact.save((err, contact ) => {
+    const newContact = new Contact(req.body);
+    newContact.save((err, contact) => {
         if (err) {
             res.send(err);
-        }
-        else {
-            res.json(contact)
+        } else {
+            res.json(contact);
         }
     });
 };
