@@ -1,4 +1,5 @@
 import { runInNewContext } from "vm";
+import { addNewContact } from "../controllers/afrController";
 
 const routes = (app) => {
     
@@ -7,13 +8,12 @@ const routes = (app) => {
         console.log(`Request from: ${req.originalUrl}`)
         console.log(`Request type: ${req.method}`)
         next();
-    },  (req, res, next) => {
+    },  (req, res, next) => {ç
         res.send('GET succesfull')
     })
     
 
-    .post((req, res ) => 
-    res.send('POST succesfull'));
+    .post(addNewContact);
 
     app.route('/contact/:contactId')
     .put((req, res ) => 

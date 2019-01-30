@@ -12,7 +12,7 @@ const PORT = 3000;
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/AAFdb', {
-    useMongoClient: true
+    
 });
 
 app.use(bodyParser.urlencoded({extended: true}));
