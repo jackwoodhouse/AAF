@@ -8,8 +8,6 @@ const app = express();
 
 const PORT = 3000;
 
-//mongoose connection
-
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/AAFdb', {
 });
