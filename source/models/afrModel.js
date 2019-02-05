@@ -1,9 +1,6 @@
 import mongoose from 'mongoose';
 
-
-const { Schema } = mongoose.Schema;
-
-export const ContactSchema = new Schema({
+export const ContactSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: 'enter first name',

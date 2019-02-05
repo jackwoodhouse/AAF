@@ -1,7 +1,6 @@
 import { addNewContact } from '../controllers/afrController';
 
-
-export const routes = (app) => {
+const routes = (app) => {
     app.route('/contact')
         .get((req, res, next) => {
             console.log(`Request from: ${req.originalUrl}`);
@@ -15,3 +14,6 @@ export const routes = (app) => {
         .put((req, res) => res.send('PUT succesfull'))
         .delete((req, res) => res.send('DELETE succesfull'));
 };
+
+
+export default routes;
