@@ -1,4 +1,10 @@
-import { addNewContact } from '../controllers/afrController';
+import {
+    addNewContact,
+    getContact,
+    getContactWithID,
+    updateContact,
+    deleteContact,
+} from '../controllers/afrController';
 
 const routes = (app) => {
     app.route('/contact')
@@ -6,13 +12,13 @@ const routes = (app) => {
             console.log(`Request from: ${req.originalUrl}`);
             console.log(`Request type: ${req.method}`);
             next();
-        }, (req, res) => {
-            res.send('GET succesfull');
-        })
+        }, getContact)
         .post(addNewContact);
+
     app.route('/contact/:contactId')
-        .put((req, res) => res.send('PUT succesfull'))
-        .delete((req, res) => res.send('DELETE succesfull'));
+        .get(getContactWithID)
+        .put(updateContact)
+        .delete(deleteContact);
 };
 
 
