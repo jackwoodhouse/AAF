@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 export const FileSchema = new mongoose.Schema({
     nameWithFileType: {
         type: String,
-        required: 'Enter a file name and extension',
+        required: 'Enter a file name',
     },
     original_author: {
         type: String,
@@ -36,9 +36,6 @@ export const FileSchema = new mongoose.Schema({
             version_date: {
                 type: Date,
                 default: Date.now,
-            },
-            keywords_tags: {
-                type: Array,
             },
             file_size: {
                 type: String,

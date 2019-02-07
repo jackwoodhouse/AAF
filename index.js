@@ -19,6 +19,6 @@ app.use(bodyParser.json());
 routes(app);
 fileRoutes(app);
 
-app.get('/', (req, res) => res.send(`Node and Express server is running on port ${Port}`));
+app.get('/', (req, res) => res.send(`Hello world! on: ${Port}`));
 
-app.listen(Port, () => console.log(`your server is running on ${Port}`));
+app.listen(Port, () => console.log(`The server is running on: ${Port}`));

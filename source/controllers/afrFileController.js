@@ -54,7 +54,7 @@ export const updateFile = (req, res) => {
 };
 
 export const deleteFile = (req, res) => {
-    File.remove({ _id: req.params.fileId }, (err) => {
+    File.deleteOne({ _id: req.params.fileId }, (err) => {
         if (err) {
             res.send(err);
         } res.json({ message: 'Done!' });
