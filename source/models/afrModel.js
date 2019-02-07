@@ -1,6 +1,14 @@
 import mongoose from 'mongoose';
 
 export const ContactSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: 'enter a username',
+    },
+    password: {
+        type: String,
+        required: 'enter a password',
+    },
     firstName: {
         type: String,
         required: 'enter first name',
@@ -11,9 +19,7 @@ export const ContactSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-    },
-    company: {
-        type: String,
+        required: 'enter valid email',
     },
     phone: {
         type: Number,
