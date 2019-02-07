@@ -2,7 +2,7 @@ import {
     addNewFile,
     getFiles,
     deleteAllFiles,
-    getFileById,
+    getFileWithId,
     updateFile,
     deleteFile,
 } from '../controllers/afrFileController';
@@ -17,8 +17,8 @@ const fileRoutes = (app) => {
         .post(addNewFile)
         .delete(deleteAllFiles);
 
-    app.route('/contact/:contactId')
-        .get(getFileById)
+    app.route('/files/:fileId')
+        .get(getFileWithId)
         .put(updateFile)
         .delete(deleteFile);
 };

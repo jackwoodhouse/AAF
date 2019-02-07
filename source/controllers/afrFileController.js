@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 import { FileSchema } from '../models/afrFileModel';
 
-const File = mongoose.model('File', FileSchema);
+const File = mongoose.model('Files', FileSchema);
 
 export const addNewFile = (req, res) => {
     const newFile = new File({
@@ -32,7 +32,7 @@ export const getFiles = (req, res) => {
     });
 };
 
-export const getFileWithID = (req, res) => {
+export const getFileWithId = (req, res) => {
     File.findById(req.params.fileID, (err, file) => {
         if (err) {
             res.send(err);
