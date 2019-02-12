@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Login msg="Welcome to Your Vue.js App"/>
+    <Login msg=""/>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import Login from './components/login.vue';
 export default {
     name: 'app',
     components: {
-    Login,
+        Login,
     },
 };
 </script>
