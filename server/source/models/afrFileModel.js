@@ -1,21 +1,21 @@
 import mongoose from 'mongoose';
 
 export const FileSchema = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
-        required: 'Enter a file name',
+        required: 'Enter a file name1',
     },
     creator: {
         type: String,
     },
     creation_date: {
         type: Date,
-        required: 'Enter a creation date',
+        default: Date.now,
     },
-    mime_type: {
+    /* mime_type: {
         type: String,
         required: 'Enter a file type',
-    },
+    }, */
     data:
     [
         {
@@ -23,7 +23,7 @@ export const FileSchema = new mongoose.Schema({
             required: 'Enter metadata',
             title: {
                 type: String,
-                required: 'Enter a title',
+                required: 'Enter a title2',
             },
             version_number: {
                 type: Number,

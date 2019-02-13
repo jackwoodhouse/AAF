@@ -10,7 +10,6 @@ export const addNewFile = (req, res) => {
         data: [{
             title: req.body.title,
             author: req.body.author,
-            tags: req.body.tags,
         }],
     });
     newFile.save((err, file) => {
