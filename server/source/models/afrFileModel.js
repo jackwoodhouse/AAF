@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 export const FileSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: 'Enter a file name1',
+        required: 'Enter a file name',
     },
     creator: {
         type: String,
@@ -23,7 +23,7 @@ export const FileSchema = new mongoose.Schema({
             required: 'Enter metadata',
             title: {
                 type: String,
-                required: 'Enter a title2',
+                required: 'Enter a title',
             },
             version_number: {
                 type: Number,

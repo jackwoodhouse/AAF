@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 import routes from './source/routes/afrRoutes';
 import fileRoutes from './source/routes/afrFileRoutes';
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 
 routes(app);
 fileRoutes(app);
+app.use(cors());
 
 app.get('/', (req, res) => res.send(`Hello world! on: ${Port}`));
 

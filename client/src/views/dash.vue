@@ -55,8 +55,9 @@ export default {
     },
     mounted() {
         this.$axios
-            .get('http://localhost:8080/v1/files')
+            .get('http://localhost:3000/Files')
             .then((response) => {
+                console.log('hello!');
                 this.files = response.data;
             });
     },
