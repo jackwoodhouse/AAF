@@ -7,15 +7,16 @@ export const FileSchema = new mongoose.Schema({
     },
     creator: {
         type: String,
+        required: 'Enter a file name',
     },
     creation_date: {
         type: Date,
-        default: Date.now,
+        required: 'Please enter a date',
     },
-    /* mime_type: {
+    mime_type: {
         type: String,
         required: 'Enter a file type',
-    }, */
+    },
     data:
     [
         {

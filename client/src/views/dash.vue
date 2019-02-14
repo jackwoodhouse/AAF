@@ -1,48 +1,29 @@
 <template>
-    <div id="files">
-    <div class="files" v-for="file in files" :key="file._id">
-      <div>
-        <h3 class="headline mb-0">{{ file.name }}</h3>
-          <div>
-            <table>
-              <tr>
-                <td>
-                  Name:
-                </td>
-                <td>
-                  {{ file.name }}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Creator:
-                </td>
-                <td>
-                  {{ file.creator }}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Creation date:
-                </td>
-                <td>
-                  {{ file.creation_date }}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Version:
-                </td>
-                <td>
-                  {{ file.version_number }}
-                </td>
-              </tr>
-            </table>
-          </div>
-      </div>
-    </div>
+<div class="files">
+    <md-table md-card>
+      <md-table-toolbar>
+        <h1 class="md-title">All Files</h1>
+      </md-table-toolbar>
+
+      <md-table-row>
+        <md-table-head>ID</md-table-head>
+        <md-table-head>Name</md-table-head>
+        <md-table-head>Original Creator</md-table-head>
+        <md-table-head>Creation Date</md-table-head>
+        <md-table-head>File Type</md-table-head>
+      </md-table-row>
+
+      <md-table-row md-selectable="single" class="files" v-for="file in files" :key="file._id">
+        <md-table-cell>{{ file._id }}</md-table-cell>
+        <md-table-cell>{{ file.name }}</md-table-cell>
+        <md-table-cell>{{ file.creator }}</md-table-cell>
+        <md-table-cell>{{ file.creation_date }}</md-table-cell>
+        <md-table-cell>{{ file.mime_type }}</md-table-cell>
+      </md-table-row>
+    </md-table>
   </div>
 </template>
+
 
 <script>
 
@@ -61,21 +42,5 @@ export default {
             });
     },
 };
-</script>
 
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+</script>

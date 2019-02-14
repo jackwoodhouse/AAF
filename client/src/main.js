@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { MdButton, MdContent, MdTabs } from 'vue-material/dist/components';
-import 'vue-material/dist/vue-material.min.css';
 
+import VueMaterial from 'vue-material';
+import 'vue-material/dist/vue-material.min.css';
+import 'vue-material/dist/theme/default.css';
 
 import Axios from 'axios';
 import App from './App.vue';
@@ -11,10 +12,7 @@ import dash from './views/dash.vue';
 
 Vue.prototype.$axios = Axios;
 Vue.use(VueRouter);
-
-Vue.use(MdButton);
-Vue.use(MdContent);
-Vue.use(MdTabs);
+Vue.use(VueMaterial);
 
 const routes = [
     { path: '/', component: Login },
