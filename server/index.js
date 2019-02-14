@@ -1,6 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+/* import session from 'express-session';
+import passport from 'passport'; */
+
 import cors from 'cors';
 
 import routes from './source/routes/afrRoutes';
@@ -16,6 +19,7 @@ mongoose.connect('mongodb://localhost/AAFdb', {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 
 app.use(cors());
 

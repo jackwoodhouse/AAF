@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 export const UserSchema = new mongoose.Schema({
     username: {
         type: String,
+        unique: true,
         required: 'enter a username',
     },
     password: {
