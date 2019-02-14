@@ -17,9 +17,11 @@ mongoose.connect('mongodb://localhost/AAFdb', {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(cors());
+
 routes(app);
 fileRoutes(app);
-app.use(cors());
+
 
 app.get('/', (req, res) => res.send(`Hello world! on: ${Port}`));
 

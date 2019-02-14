@@ -1,54 +1,54 @@
 import mongoose from 'mongoose';
 
-import { ContactSchema } from '../models/afrModel';
+import { UserSchema } from '../models/afrModel';
 
-const Contact = mongoose.model('Contact', ContactSchema);
+const User = mongoose.model('User', UserSchema);
 
-export const addNewContact = (req, res) => {
-    const newContact = new Contact(req.body);
-    newContact.save((err, contact) => {
+export const addNewUser = (req, res) => {
+    const newUser = new User(req.body);
+    newUser.save((err, user) => {
         if (err) {
             res.send(err);
         } else {
-            res.json(contact);
+            res.json(user);
         }
     });
 };
 
-export const getContact = (req, res) => {
-    Contact.find({}, (err, contact) => {
+export const getUser = (req, res) => {
+    User.find({}, (err, user) => {
         if (err) {
             res.send(err);
         } else {
-            res.json(contact);
+            res.json(user);
         }
     });
 };
 
 
-export const getContactWithID = (req, res) => {
-    Contact.findById(req.params.contactId, (err, contact) => {
+export const getUserWithID = (req, res) => {
+    User.findById(req.params.userId, (err, user) => {
         if (err) {
             res.send(err);
         } else {
-            res.json(contact);
+            res.json(user);
         }
     });
 };
 
-export const updateContact = (req, res) => {
-    Contact.findOneAndUpdate({ _id: req.params.contactId }, req.body, { new: true },
-        (err, contact) => {
+export const updateUser = (req, res) => {
+    User.findOneAndUpdate({ _id: req.params.userId }, req.body, { new: true },
+        (err, user) => {
             if (err) {
                 res.send(err);
             } else {
-                res.json(contact);
+                res.json(user);
             }
         });
 };
 
-export const deleteContact = (req, res) => {
-    Contact.remove({ _id: req.params.contactId }, (err) => {
+export const deleteUser = (req, res) => {
+    User.remove({ _id: req.params.userId }, (err) => {
         if (err) {
             res.send(err);
         } res.json({ message: 'Done!' });

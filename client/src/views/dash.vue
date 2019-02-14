@@ -1,16 +1,16 @@
 <template>
-    <div id="display">
-    <div class="display" v-for="file in display" :key="file._id">
+    <div id="files">
+    <div class="files" v-for="file in files" :key="file._id">
       <div>
         <h3 class="headline mb-0">{{ file.name }}</h3>
           <div>
             <table>
               <tr>
                 <td>
-                  name:
+                  Name:
                 </td>
                 <td>
-                  {{ file.data[file.data.length - 1]._id }}
+                  {{ file.name }}
                 </td>
               </tr>
               <tr>
@@ -18,7 +18,7 @@
                   Creator:
                 </td>
                 <td>
-                  {{ file.data[file.data.length - 1].Creator }}
+                  {{ file.creator }}
                 </td>
               </tr>
               <tr>
@@ -26,7 +26,7 @@
                   Creation date:
                 </td>
                 <td>
-                  {{ file.data[file.data.length - 1].creation_date }}
+                  {{ file.creation_date }}
                 </td>
               </tr>
               <tr>
@@ -34,7 +34,7 @@
                   Version:
                 </td>
                 <td>
-                  {{ file.data[file.data.length - 1].version }}
+                  {{ file.version_number }}
                 </td>
               </tr>
             </table>
@@ -57,7 +57,6 @@ export default {
         this.$axios
             .get('http://localhost:3000/Files')
             .then((response) => {
-                console.log('hello!');
                 this.files = response.data;
             });
     },
