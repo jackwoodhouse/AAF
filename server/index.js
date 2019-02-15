@@ -6,12 +6,17 @@ import passport from 'passport'; */
 
 import cors from 'cors';
 
-import routes from './source/routes/afrRoutes';
+import routes from './source/routes/UserRoutes';
 import fileRoutes from './source/routes/afrFileRoutes';
 
 const app = express();
 
 const Port = 3000;
+
+const auth = require('./source/routes/auth');
+
+app.use('/api/auth', auth);
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/AAFdb', {

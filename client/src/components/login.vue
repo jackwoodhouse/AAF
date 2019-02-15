@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form action="/login" method="post">
+        <form action="/login" method="onSubmit">
     <div>
         <label>Username:</label>
         <input type="text" name="username"/>
@@ -13,37 +13,36 @@
         <input type="submit" value="Log In"/>
     </div>
 </form>
-    </div>
+</div>
 </template>
 
 <script>
 
-export default {
-    name: 'Login',
-    data() {
-        return {
-            input: {
-                username: '',
-                password: '',
-            },
-        };
-    },
-};
-</script>
+import axios from 'axios'
 
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+export default {
+  name: 'login',
+  data () {
+    return {
+      login: {},
+      errors: []
+    }
+  },
+  methods: {
+    onSubmit (evt) {
+      evt.preventDefault()
+      axios.post(`http://localhost:3000/source/routes/auth/`, this.login)
+      .then(response => {
+        localStorage.setItem('jwtToken', response.data.token)
+        this.$router.push({
+          name: 'dash'
+        })
+      })
+      .catch(e => {
+        console.log(e)
+        this.errors.push(e)
+      })
+    },
+    }
+  }
+</script>
