@@ -1,13 +1,18 @@
 <template>
-    <div>    
-        <h2>Welcome</h2>    
-        <form v-on:submit="login">    
-            <input type="text" name="email" /><br>    
-            <input type="password" name="password" /><br>    
-            <input type="submit" value="Login" />  
-            <router-link to="/dash"> <button type="button" v-on:click="login()">Login
-        </button></router-link>  
-        </form>    
+    <div>
+        <form action="/login" method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In"/>
+    </div>
+</form>
     </div>
 </template>
 
