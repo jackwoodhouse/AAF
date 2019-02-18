@@ -12,13 +12,12 @@
           <md-button
             class="md-raised md-primary"
             @click="submit(file._id, file.data[file.data.length - 1])"
-          >Edit</md-button>
+          >Users</md-button>
         </div>
         <div>
-          <md-button
-            class="md-raised md-primary"
+          <md-button class="md-raised md-accent"
             @click="submit(file._id, file.data[file.data.length - 1])"
-          >Edit</md-button>
+          >Logout</md-button>
         </div>
       </md-table-toolbar>
      <md-table-row>

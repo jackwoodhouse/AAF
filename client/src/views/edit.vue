@@ -2,7 +2,6 @@
   <div class="file">
     <md-card>
       
-      
       <form id="form" novalidate @submit.prevent>
         <md-content>
         <h1>Version Date</h1>
@@ -40,7 +39,7 @@
         </md-field>
 
         <div>
-          <md-button class="md-raised md-accent"@click="del(file._id)"
+          <md-button class="md-raised md-accent" @click="del(file._id)"
           >Delete File</md-button>
         </div>
 
@@ -121,8 +120,8 @@ export default {
     display: inline-block;
     vertical-align: top;
   }
-  .md-toolbar {
-  background-color: #CFC7BA;
+  .md-button {
+    align-items: right;
   }
   
 </style>
