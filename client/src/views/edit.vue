@@ -70,17 +70,14 @@ export default {
 
     console.log(fileId);
     this.$axios.get(`http://localhost:3000/files/${fileId}`).then(response => {
-      console.log(response);
-      this.file = response.data;
-      console.log(this.file);
+    this.file = response.data;
+
     });
   },
   methods: {
     cancel(file) {
       this.selected = file;
       window.location.href = `/dash`;
-      console.log(this.selected);
-      this.$router.go(0);
     },
   del(fileId) {
     this.$axios
@@ -91,17 +88,21 @@ export default {
       });
   },
   submit(fileId, edited) {
-    this.$axios
-      .put(`http://localhost:3000/files/${fileId}`, {
+    this.$axios.put(`http://localhost:3000/files/${fileId}`, {
         title: edited.title,
         version_number: edited.version_number,
         version_author: edited.version_author,
-        version_date: edited.version_date
+        version_date: edited.version_date,
       })
       .then(response => {
         window.location.href = `/dash/`;
-      });
+        
+      })
+      .catch(error => {
+          console.log("Error Updating");
+        });
     }
+    
 },
 };
 

@@ -39,9 +39,8 @@ export const getVersionOfFile = (req, res) => {
                 name: file.name,
                 title: file.data[versionNumber].title,
                 version_number: file.data[versionNumber].version_number,
-                version_author: file.data[versionNumber].author,
+                version_author: file.data[versionNumber].version_author,
                 version_date: file.data[versionNumber].created_date,
-                file_size: req.body.file_size,
             });
         }
     });
@@ -74,12 +73,11 @@ export const updateFile = (req, res) => {
                 res.send(err);
             } else {
                 const fileToUpdate = file;
-                fileToUpdate.data[5] = {
+                fileToUpdate.data[4] = {
                     title: req.body.title,
                     version_number: req.body.version_number,
                     version_author: req.body.version_author,
                     version_date: req.body.version_date,
-                    file_size: req.body.file_size,
                 };
             }
         });
