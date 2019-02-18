@@ -11,25 +11,31 @@ export const UserSchema = new mongoose.Schema({
         type: String,
         required: 'enter a password',
     },
-    firstName: {
-        type: String,
-        required: 'enter first name',
-    },
-    lastName: {
-        type: String,
-        required: 'enter last name',
-    },
-    email: {
-        type: String,
-        required: 'enter valid email',
-    },
-    phone: {
-        type: Number,
-    },
-    created_data: {
-        type: Date,
-        default: Date.now,
-    },
+    data:
+    [
+        {
+            firstName: {
+                type: String,
+                required: 'enter first name',
+            },
+            lastName: {
+                type: String,
+                required: 'enter last name',
+            },
+            email: {
+                type: String,
+                required: 'enter valid email',
+            },
+            phone: {
+                type: Number,
+            },
+            created_data: {
+                type: Date,
+                default: Date.now,
+            },
+
+        },
+    ],
 });
 
 /* UserSchema.pre('save', (next) => {
