@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 
 export const UserSchema = new mongoose.Schema({
+    // maybe make this an array
     username: {
         type: String,
         unique: true,
