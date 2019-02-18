@@ -1,10 +1,10 @@
 <template>
   <div class="file">
     <md-card>
-      <div>
-        <md-button class="md-raised md-primary" @click="cancel()">Cancel</md-button>
-      </div>
+      
+      
       <form id="form" novalidate @submit.prevent>
+        <md-content>
         <h1>Version Date</h1>
         <md-field>
           <label>Name</label>
@@ -22,6 +22,7 @@
           <label>File Type</label>
           <md-input type="text" disabled v-model="file.mime_type"></md-input>
         </md-field>
+        </md-content>
 
         <h1>New Information</h1>
 
@@ -39,8 +40,7 @@
         </md-field>
 
         <div>
-          <md-button 
-          class="md-raised md-primary" @click="del(file._id)"
+          <md-button class="md-raised md-accent"@click="del(file._id)"
           >Delete File</md-button>
         </div>
 
@@ -48,8 +48,13 @@
           <md-button
             class="md-raised md-primary"
             @click="submit(file._id, file.data[file.data.length - 1])"
-          >Edit</md-button>
+          >Submit</md-button>
         </div>
+
+        <div>
+        <md-button class="md-raised md-accent" @click="cancel()">Cancel</md-button>
+        </div>
+
       </form>
     </md-card>
   </div>
@@ -88,6 +93,7 @@ export default {
       });
   },
   submit(fileId, edited) {
+      console.log(edited);
     this.$axios.put(`http://localhost:3000/files/${fileId}`, {
         title: edited.title,
         version_number: edited.version_number,
@@ -107,3 +113,16 @@ export default {
 };
 
 </script>
+
+<style lang="scss" scoped>
+  .md-card {
+    width: 750px;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .md-toolbar {
+  background-color: #CFC7BA;
+  }
+  
+</style>

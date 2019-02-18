@@ -1,4 +1,5 @@
 import Vue from 'vue';
+
 import Router from 'vue-router';
 import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';

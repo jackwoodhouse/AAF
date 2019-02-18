@@ -1,10 +1,26 @@
+
 <template>
+
 <div class="files">
     <md-table md-card>
       <md-table-toolbar>
         <h1 class="md-title">All Files</h1>
       </md-table-toolbar>
-        
+
+      <md-table-toolbar>
+      <div>
+          <md-button
+            class="md-raised md-primary"
+            @click="submit(file._id, file.data[file.data.length - 1])"
+          >Edit</md-button>
+        </div>
+        <div>
+          <md-button
+            class="md-raised md-primary"
+            @click="submit(file._id, file.data[file.data.length - 1])"
+          >Edit</md-button>
+        </div>
+      </md-table-toolbar>
      <md-table-row>
         <md-table-head>ID</md-table-head>
         <md-table-head>Name</md-table-head>
@@ -55,3 +71,24 @@ export default {
 };
 
 </script>
+
+<style lang="scss" scoped>
+
+  .md-table + .md-table {
+    position: absolute;
+    padding: 50px;
+  }
+  .md-table-cell {
+    align-items:center;
+    
+    padding-right: 80px;
+  }
+  .files {
+    align-items:center;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .md-button {
+    margin-right: 50px; 
+  }
+</style>
