@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-const bcrypt = require('bcrypt-nodejs');
 
 export const UserSchema = new mongoose.Schema({
     username: {
@@ -33,7 +32,7 @@ export const UserSchema = new mongoose.Schema({
     },
 });
 
-UserSchema.pre('save', (next) => {
+/* UserSchema.pre('save', (next) => {
     const User = this;
     const hash = bcrypt.hash(this.password, 10);
     this.password = hash;
@@ -44,4 +43,4 @@ UserSchema.methods.isValidPassword = (password) => {
     const User = this;
     const compare = bcrypt.compare(password, User.password);
     return compare;
-};
+}; */

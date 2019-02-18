@@ -7,7 +7,9 @@ import 'vue-material/dist/theme/default.css';
 import Axios from 'axios';
 import Login from '../components/login.vue';
 import dash from '../views/dash.vue';
-import edit from '../views/edit.vue';
+import editFile from '../views/editFile.vue';
+import editUser from '../views/editUser.vue';
+import users from '../views/users.vue';
 
 
 Vue.prototype.$axios = Axios;
@@ -22,7 +24,9 @@ export const router = new Router({
     routes: [
         { path: '/', component: Login },
         { path: '/dash/', component: dash },
-        { path: '/edit/*', component: edit },
+        { path: '/users/', component: users },
+        { path: '/edit/*', component: editFile },
+        { path: '/editUser/*', component: editUser },
 
     ],
 });

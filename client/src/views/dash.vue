@@ -11,7 +11,7 @@
       <div>
           <md-button
             class="md-raised md-primary"
-            @click="submit(file._id, file.data[file.data.length - 1])"
+            @click="users()"
           >Users</md-button>
         </div>
         <div>
@@ -60,6 +60,11 @@ export default {
             });
     },
     methods: {
+      users(){
+
+        window.location.href = `/users`;
+
+      },
       onSelect(file) {
         
         this.selected = file;

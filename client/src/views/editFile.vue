@@ -80,7 +80,6 @@ export default {
   },
   methods: {
     cancel(file) {
-      this.selected = file;
       window.location.href = `/dash`;
     },
   del(fileId) {
