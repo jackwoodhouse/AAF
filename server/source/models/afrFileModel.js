@@ -11,6 +11,7 @@ export const FileSchema = new mongoose.Schema({
     },
     creation_date: {
         type: Date,
+        default: Date.now,
         required: 'Please enter a date',
     },
     mime_type: {
@@ -20,8 +21,6 @@ export const FileSchema = new mongoose.Schema({
     data:
     [
         {
-            type: Array,
-            required: 'Enter metadata',
             title: {
                 type: String,
                 required: 'Enter a title',
@@ -41,7 +40,6 @@ export const FileSchema = new mongoose.Schema({
             file_size: {
                 type: String,
             },
-
         },
     ],
     locked: {

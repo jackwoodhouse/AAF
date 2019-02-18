@@ -58,7 +58,7 @@ export const getFiles = (req, res) => {
 };
 
 export const getFileWithId = (req, res) => {
-    File.findById(req.params.fileID, (err, file) => {
+    File.findById(req.params.fileId, (err, file) => {
         if (err) {
             res.send(err);
         } else {
@@ -74,7 +74,7 @@ export const updateFile = (req, res) => {
                 res.send(err);
             } else {
                 const fileToUpdate = file;
-                fileToUpdate.data[6] = {
+                fileToUpdate.data[5] = {
                     title: req.body.title,
                     version_number: req.body.version_number,
                     version_author: req.body.version_author,
