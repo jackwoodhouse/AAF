@@ -1,18 +1,14 @@
 
 <template>
 <div class="users">
+  <md-card>
+      <md-toolbar class="md-accent" md-elevation="1">
+      <h3 align="left" class="md-title" style="flex: 1"> User Information </h3> 
+      <md-button class="md-raised md-primary" @click="dash()">DashBoard</md-button>
+      </md-toolbar>
+    </md-card>
     <md-table md-card>
-      <md-table-toolbar>
-        <h1 class="md-title">All Users</h1>
-      </md-table-toolbar>
-      <md-table-toolbar>
-      <div>
-          <md-button
-            class="md-raised md-primary"
-            @click="dash()"
-          >Dash Board</md-button>
-        </div>
-      </md-table-toolbar>
+
      <md-table-row>
         <md-table-head>UserName</md-table-head>
         <md-table-head>Password</md-table-head>

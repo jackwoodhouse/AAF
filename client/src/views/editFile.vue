@@ -1,9 +1,11 @@
 <template>
   <div class="file">
-    <md-card>
+     <md-card>
+      <md-toolbar class="md-accent" md-elevation="1">
+      <h3 align="left" class="md-title" style="flex: 1"> Version Information </h3> 
+      </md-toolbar>
       <form id="form" novalidate @submit().prevent>
         <md-content>
-        <h1>Version Date</h1>
         <md-field>
           <label>Name</label>
           <md-input type="text" disabled v-model="file.name"></md-input>
@@ -21,7 +23,10 @@
           <md-input type="text" disabled v-model="file.mime_type"></md-input>
         </md-field>
         </md-content>
-        <h1>New Information</h1>
+        <md-toolbar class="md-title" md-elevation="0">
+      <h3 align="left" class="md-title" style="flex: 1"> New Information </h3> 
+      
+      </md-toolbar>
         <md-field>
           <label>Title</label>
           <md-input type="text" v-model="file.data[file.data.length - 1].title"
@@ -52,14 +57,13 @@
           v-model="file.data[file.data.length - 1].file_size"></md-input>
           <span>{{ errors.first('file size') }}</span>
         </md-field>
-        <div>
           <md-button :disabled="errors.any() || !isComplete" class="md-raised md-primary"
             @click="submit(file._id, file.data[file.data.length - 1])"
           >Submit</md-button>
-        <md-button class="md-raised md-accent" @click="cancel()">Cancel</md-button>
+        <md-button align="right" class="md-raised md-accent" @click="cancel()">Cancel</md-button>
         <md-button class="md-raised md-accent" @click="del(file._id)"
         >Delete File</md-button>
-        </div>
+
       </form>
     </md-card>
   </div>

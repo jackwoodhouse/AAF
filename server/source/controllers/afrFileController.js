@@ -18,7 +18,6 @@ export const addNewFile = (req, res) => {
             keywords_tags: req.body.keywords_tags,
             file_size: req.body.file_size,
         }],
-        locked: req.body.locked,
     });
     newFile.save((err, file) => {
         if (err) {

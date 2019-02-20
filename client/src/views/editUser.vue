@@ -1,9 +1,11 @@
 <template>
-  <div class="users">
+  <div class="users"> 
     <md-card>
+     <md-toolbar class="md-accent" md-elevation="1">
+      <h3 align="left" class="md-title" style="flex: 1"> User Information </h3> 
+      </md-toolbar>
       <form id="form" novalidate @submit.prevent>
         <md-content>
-          <h1>User Information</h1>
           <md-field>
             <label>Username</label>
             <md-input type="text" enabled v-model="user.username"></md-input>
@@ -29,15 +31,15 @@
             <md-input type="number" enabled v-model="user.phone"></md-input>
           </md-field>
         </md-content>
-        <div>
+      
           <md-button class="md-raised md-accent" @click="del(user._id)">Delete File</md-button>
-        </div>
+      
 
-        <div>
+       
           <md-button class="md-raised md-accent" @click="cancel()">Cancel</md-button>
-        </div>
+        
       </form>
-    </md-card>
+  </md-card>
   </div>
 </template>
 
@@ -75,13 +77,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.md-card {
-  width: 750px;
-  margin: 4px;
-  display: inline-block;
-  vertical-align: top;
-}
-.md-button {
-  align-items: right;
-}
-</style>
+  .md-card {
+    width: 750px;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .md-button {
+    align-items: right;
+  }
+  </style>

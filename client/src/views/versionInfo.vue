@@ -1,15 +1,15 @@
 <template>
   <div class="files">
-    <md-table md-card>
-      <md-table-toolbar>
-        <h1 class="md-title">Version Information</h1>
-      </md-table-toolbar>
 
-      <md-table-toolbar>
-        <div>
-          <md-button class="md-raised md-primary" @click="dash()">DashBoard</md-button>
-        </div>
-      </md-table-toolbar>
+     <md-card>
+      <md-toolbar class="md-accent" md-elevation="1">
+      <h3 align="left" class="md-title" style="flex: 1"> Version Information </h3> 
+      <md-button class="md-raised md-primary" @click="dash()">DashBoard</md-button>
+      </md-toolbar>
+    </md-card>
+
+
+    <md-table md-card>
 
       <md-table-row>
         <md-table-head>ID</md-table-head>

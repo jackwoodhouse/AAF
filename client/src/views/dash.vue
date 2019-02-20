@@ -3,16 +3,12 @@
 
   <div class="files">
     <md-card>
-      
       <md-toolbar class="md-accent" md-elevation="1">
-      
-      <h3 class="md-title" style="flex: 1"></h3
-      > 
+      <h3 align="left" class="md-title" style="flex: 1"> DashBoard </h3> 
       <md-button class="md-raised md-primary" @click="users()">Users </md-button>
       <md-button class="md-raised md-primary" @click="addFile()">Add file </md-button>
       </md-toolbar>
     </md-card>
-    
 
   <md-table md-card>
       <md-table-row>
@@ -84,6 +80,7 @@ export default {
 .md-table + .md-toolbar {
   width: 1200px;
   padding: 50px;
+
 }
 .md-card {
   width: 1200px;
