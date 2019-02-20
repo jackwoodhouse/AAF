@@ -2,7 +2,7 @@
   <div class="file">
     <md-card>
       
-      <form id="form" novalidate @submit.prevent>
+      <form id="form" novalidate @submit().prevent>
         <md-content>
         <h1>Version Date</h1>
         <md-field>
@@ -27,31 +27,36 @@
 
         <md-field>
           <label>Title</label>
-          <md-input type="text" v-model="file.data[file.data.length - 1].title"></md-input>
+          <md-input type="text" v-model="file.data[file.data.length - 1].title" v-validate="'required'" name="title"></md-input>
+          <span>{{ errors.first('title') }}</span>        
         </md-field>
         <md-field>
           <label>Version Number</label>
-          <md-input type="number" v-model="file.data[file.data.length - 1].version_number"></md-input>
+          <md-input v-validate="'required'" name="version number" type="number" v-model="file.data[file.data.length - 1].version_number"></md-input>
+          <span>{{ errors.first('version number') }}</span>   
         </md-field>
         <md-field>
           <label>Version Author</label>
-          <md-input type="text" v-model="file.data[file.data.length - 1].version_author"></md-input>
+          <md-input v-validate="'required'" name="version author" type="text" v-model="file.data[file.data.length - 1].version_author"></md-input>
+          <span>{{ errors.first('version author') }}</span>  
         </md-field>
          <md-field>
            <label>Keywords</label>
-          <md-input type="text" v-model="file.data[file.data.length - 1].keywords_tags"></md-input>
+          <md-input v-validate="'required'" name="keywords" type="text" v-model="file.data[file.data.length - 1].keywords_tags"></md-input>
+          <span>{{ errors.first('keywords') }}</span>  
+        
         </md-field>
         <md-field>
           <label>File Size</label>
-          <md-input type="text" v-model="file.data[file.data.length - 1].file_size"></md-input>
+          <md-input v-validate="'required'" name="file size" type="text" v-model="file.data[file.data.length - 1].file_size"></md-input>
+          <span>{{ errors.first('file size') }}</span>  
         </md-field>
 
         <md-button class="md-raised md-accent" @click="del(file._id)"
         >Delete File</md-button>
 
         <div>
-          <md-button
-            class="md-raised md-primary"
+          <md-button :disabled="errors.any() || !isComplete" class="md-raised md-primary"
             @click="submit(file._id, file.data[file.data.length - 1])"
           >Submit</md-button>
         </div>
@@ -85,6 +90,9 @@ export default {
     });
   },
   methods: {
+    isComplete(){
+    return this.title && this.version_number && this.version_author && this.keywords_tags && this.file_size;
+  },
     cancel(file) {
       window.location.href = `/dash`;
     },

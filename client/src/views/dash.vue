@@ -36,7 +36,7 @@
         <md-table-cell>{{ file._id }}</md-table-cell>
         <md-table-cell>{{ file.name }}</md-table-cell>
         <md-table-cell>{{ file.creator }}</md-table-cell>
-        <md-table-cell>{{ file.creation_date }}</md-table-cell>
+        <md-table-cell>{{ new Date(file.creation_date).toLocaleString() }}</md-table-cell>
         <md-table-cell>{{ file.mime_type }}</md-table-cell>
         <md-table-cell>{{ file.data[file.data.length - 1].version_number }}</md-table-cell>
       </md-table-row>

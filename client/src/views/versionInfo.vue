@@ -22,7 +22,7 @@
       <md-table-cell>{{ files._id }}</md-table-cell>
       <md-table-cell>{{ files.name }}</md-table-cell>
       <md-table-cell>{{ files.creator }}</md-table-cell>
-      <md-table-cell>{{ files.creation_date }}</md-table-cell>
+      <md-table-cell>{{ new Date(files.creation_date).toLocaleString() }}</md-table-cell>
       <md-table-cell>{{ files.mime_type }}</md-table-cell>
 
       <md-table-row>
