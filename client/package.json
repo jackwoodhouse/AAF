@@ -20,7 +20,8 @@
     "vue": "^2.5.22",
     "vue-formular": "^1.2.61",
     "vue-material": "^1.0.0-beta-10.2",
-    "vue-router": "3.0.2"
+    "vue-router": "3.0.2",
+    "vuelidate": "^0.7.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",

@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/default.css';
+import Vuelidate from 'vuelidate';
 import Axios from 'axios';
 import Login from '../components/login.vue';
 import dash from '../views/dash.vue';
@@ -12,6 +13,8 @@ import editUser from '../views/editUser.vue';
 import users from '../views/users.vue';
 import versionInfo from '../views/versionInfo.vue';
 import addFile from '../views/addFile.vue';
+
+Vue.use(Vuelidate);
 
 
 Vue.prototype.$axios = Axios;
