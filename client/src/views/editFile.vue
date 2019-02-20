@@ -37,11 +37,17 @@
           <label>Version Author</label>
           <md-input type="text" v-model="file.data[file.data.length - 1].version_author"></md-input>
         </md-field>
+         <md-field>
+           <label>Keywords</label>
+          <md-input type="text" v-model="file.data[file.data.length - 1].keywords_tags"></md-input>
+        </md-field>
+        <md-field>
+          <label>File Size</label>
+          <md-input type="text" v-model="file.data[file.data.length - 1].file_size"></md-input>
+        </md-field>
 
-        <div>
-          <md-button class="md-raised md-accent" @click="del(file._id)"
-          >Delete File</md-button>
-        </div>
+        <md-button class="md-raised md-accent" @click="del(file._id)"
+        >Delete File</md-button>
 
         <div>
           <md-button
@@ -83,11 +89,10 @@ export default {
       window.location.href = `/dash`;
     },
   del(fileId) {
-    this.$axios
-      .delete(`http://localhost:3000/files/${fileId}`, {})
+    this.$axios.delete(`http://localhost:3000/files/${fileId}`, {
+      })
       .then(response => {
-
-        
+        window.location.href = `/dash`;
       });
   },
   submit(fileId, edited) {
@@ -97,6 +102,8 @@ export default {
         version_number: edited.version_number,
         version_author: edited.version_author,
         version_date: edited.version_date,
+        keywords_tags: edited.keywords_tags,
+        file_size: edited.file_size,
       })
       .then(response => {
         window.location.href = `/dash/`;

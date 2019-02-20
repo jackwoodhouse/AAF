@@ -34,10 +34,6 @@
         </div>
 
         <div>
-          <md-button class="md-raised md-primary" @click="submit(user._id, user.data)">Submit</md-button>
-        </div>
-
-        <div>
           <md-button class="md-raised md-accent" @click="cancel()">Cancel</md-button>
         </div>
       </form>
@@ -74,28 +70,6 @@ export default {
           window.location.href = `/users`;
         });
     },
-    onSelect(user) {
-      this.selected = user;
-      window.location.href = `/editUser/${user}`;
-    },
-    submit(userId, edited) {
-      console.log();
-      this.$axios
-        .put(`http://localhost:3000/User/${userId}`, {
-          username: edited.username,
-          password: edited.password,
-          firstName: edited.firstName,
-          lastName: edited.lastName,
-          email: edited.email,
-          phone: edited.phone
-        })
-        .then(response => {
-          window.location.href = `/users/`;
-        })
-        .catch(error => {
-          console.log("Error Updating");
-        });
-    }
   }
 };
 </script>

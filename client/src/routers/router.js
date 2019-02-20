@@ -10,6 +10,7 @@ import dash from '../views/dash.vue';
 import editFile from '../views/editFile.vue';
 import editUser from '../views/editUser.vue';
 import users from '../views/users.vue';
+import versionInfo from '../views/versionInfo.vue';
 
 
 Vue.prototype.$axios = Axios;
@@ -26,6 +27,7 @@ export const router = new Router({
         { path: '/dash/', component: dash },
         { path: '/users/', component: users },
         { path: '/edit/*', component: editFile },
+        { path: '/versionInfo/*', component: versionInfo },
         { path: '/editUser/*', component: editUser },
 
     ],

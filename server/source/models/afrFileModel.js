@@ -37,6 +37,9 @@ export const FileSchema = new mongoose.Schema({
                 type: Date,
                 default: Date.now,
             },
+            keywords_tags: {
+                type: String,
+            },
             file_size: {
                 type: String,
             },
