@@ -11,6 +11,7 @@ import editFile from '../views/editFile.vue';
 import editUser from '../views/editUser.vue';
 import users from '../views/users.vue';
 import versionInfo from '../views/versionInfo.vue';
+import addFile from '../views/addFile.vue';
 
 
 Vue.prototype.$axios = Axios;
@@ -28,7 +29,7 @@ export const router = new Router({
         { path: '/users/', component: users },
         { path: '/edit/*', component: editFile },
         { path: '/versionInfo/*', component: versionInfo },
+        { path: '/addFile/', component: addFile },
         { path: '/editUser/*', component: editUser },
-
     ],
 });

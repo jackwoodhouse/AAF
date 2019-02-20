@@ -7,8 +7,6 @@
         <h1 class="md-title">All Files</h1>
       </md-table-toolbar>
 
-     
-
       <md-table-toolbar>
       <div>
           <md-button
@@ -17,10 +15,17 @@
           >Users</md-button>
         </div>
         <div>
+          <md-button
+            class="md-raised md-primary"
+            @click="addFile()"
+          >Add file</md-button>
+        </div>
+        <div>
           <md-button class="md-raised md-accent"
             @click="submit(file._id, file.data[file.data.length - 1])"
           >Logout</md-button>
         </div>
+
       </md-table-toolbar>
      <md-table-row>
         <md-table-head>ID</md-table-head>
@@ -48,10 +53,8 @@
 
 export default {
     name: 'dash',
-  
     data() {
         return {
-        
             files: null,
             selected: {},
         };
@@ -67,6 +70,11 @@ export default {
       users(){
 
         window.location.href = `/users`;
+
+      },
+      addFile(){
+
+        window.location.href = `/addFile`;
 
       },
       onSelect(file) {

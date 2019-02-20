@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 export const FileSchema = new mongoose.Schema({
+
     name: {
         type: String,
         required: 'Enter a file name',
@@ -12,7 +13,6 @@ export const FileSchema = new mongoose.Schema({
     creation_date: {
         type: Date,
         default: Date.now,
-        required: 'Please enter a date',
     },
     mime_type: {
         type: String,
