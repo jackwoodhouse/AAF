@@ -1,6 +1,11 @@
 <template>
   <div>
     <md-card>
+
+      <md-table-toolbar>
+        <h1 class="md-title">Add New File</h1>
+      </md-table-toolbar>
+
     <md-field>
       <label>Name</label>
       <md-input v-model="initial"></md-input>

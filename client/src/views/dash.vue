@@ -22,7 +22,7 @@
         </div>
         <div>
           <md-button class="md-raised md-accent"
-            @click="submit(file._id, file.data[file.data.length - 1])"
+            @click="logout()"
           >Logout</md-button>
         </div>
 
@@ -70,6 +70,11 @@ export default {
       users(){
 
         window.location.href = `/users`;
+
+      },
+      logout(){
+
+        window.location.href = `/`;
 
       },
       addFile(){
