@@ -51,7 +51,7 @@
 </template>
 <script>
 export default {
-  name: "version",
+  name: 'version',
   data() {
     return {
       files: null,
@@ -59,7 +59,7 @@ export default {
     };
   },
   mounted() {
-    const currentUrl = window.location.pathname.split("/");
+    const currentUrl = window.location.pathname.split('/');
     const fileId = currentUrl[2];
 
     console.log(fileId);
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     dash() {
-      window.location.href = `/dash`;
+      window.location.href = '/dash';
     },
     onSelect(file) {
       this.selected = file;

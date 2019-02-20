@@ -1,4 +1,5 @@
 {
+
     "root": true,
     "env": {
         "browser": true,
@@ -10,7 +11,8 @@
     },
     "extends": [
         "plugin:vue/essential",
-        "@vue/airbnb"
+        "@vue/airbnb",
+        "airbnb-base"
     ],
     "plugins": [
         "vue"

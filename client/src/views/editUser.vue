@@ -59,15 +59,15 @@ export default {
       this.user = response.data;
     });
   },
-  methods: {
-    cancel(user) {
-      window.location.href = `/users`;
-    },
-    del(userId) {
-      this.$axios
-        .delete(`http://localhost:3000/User/${userId}`, {})
-        .then(response => {
-          window.location.href = `/users`;
+    methods: {
+        cancel(user) {
+          window.location.href = '/users';
+      },
+        del(userId) {
+          this.$axios
+                .delete(`http://localhost:3000/User/${userId}`, {})
+                .then(response => {
+          window.location.href = '/users';
         });
     },
   }

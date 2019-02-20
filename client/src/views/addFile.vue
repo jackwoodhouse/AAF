@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  name: "addFile",
+  name: 'addFile',
   data() {
     return {
       file: {}
@@ -78,7 +78,7 @@ export default {
           file_size: FormData.file_size,
         })
         .then(response => {
-          window.location.href = `/dash/`;
+          window.location.href = '/dash/';
         });
     }
   }
