@@ -4,7 +4,7 @@ import { FileSchema } from '../models/afrFileModel';
 
 const File = mongoose.model('Files', FileSchema);
 
-export const addNewFile = (req, res) => {
+export const addNewFile = (req, res) => { // adding a file inline with the model for the database
     const newFile = new File({
         name: req.body.name,
         creator: req.body.creator,
@@ -28,7 +28,7 @@ export const addNewFile = (req, res) => {
     });
 };
 
-export const getVersionOfFile = (req, res) => {
+export const getVersionOfFile = (req, res) => { // returns all the file information for the file
     File.findById(req.params.fileId, (err, file) => {
         if (err) {
             res.send(err);
@@ -48,7 +48,7 @@ export const getVersionOfFile = (req, res) => {
     });
 };
 
-export const getFiles = (req, res) => {
+export const getFiles = (req, res) => { // returns all files
     File.find({}, (err, file) => {
         if (err) {
             res.send(err);
@@ -58,7 +58,7 @@ export const getFiles = (req, res) => {
     });
 };
 
-export const getFileWithId = (req, res) => {
+export const getFileWithId = (req, res) => { // returns selected file 
     File.findById(req.params.fileId, (err, file) => {
         if (err) {
             res.send(err);

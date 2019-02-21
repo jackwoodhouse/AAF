@@ -15,15 +15,15 @@ import users from '../views/users.vue';
 import versionInfo from '../views/versionInfo.vue';
 import addFile from '../views/addFile.vue';
 
-Vue.use(VeeValidate);
+Vue.use(VeeValidate); // used for some basic form validation
 
 Vue.prototype.$axios = Axios;
 
-Vue.use(VueMaterial);
+Vue.use(VueMaterial); // used for the front end gui
 
 Vue.use(Router);
 
-export const router = new Router({
+export const router = new Router({ // route urls for each page
     mode: 'history',
     routes: [
         { path: '/', component: Login },
