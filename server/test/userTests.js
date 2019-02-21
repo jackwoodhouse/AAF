@@ -60,14 +60,3 @@ describe('User', () => {
     });
 });
 
-
-describe('User', () => {
-    it('should be invalid if created_date is empty', (done) => {
-        const user = new User();
-
-        user.validate((err) => {
-            expect(err.errors.created_date).to.not.exist;
-            done();
-        });
-    });
-});
