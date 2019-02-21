@@ -26,7 +26,7 @@
         <md-toolbar class="md-title" md-elevation="0">
       <h3 align="left" class="md-title" style="flex: 1"> New Information </h3> 
       
-      </md-toolbar>
+      </md-toolbar> <!-- veevalidation is used to ensure nothing is blank when submitting a file -->
         <md-field>
           <label>Title</label>
           <md-input type="text" v-model="file.data[file.data.length - 1].title"
@@ -57,6 +57,7 @@
           v-model="file.data[file.data.length - 1].file_size"></md-input>
           <span>{{ errors.first('file size') }}</span>
         </md-field>
+        <!-- validation of the form to ensure fields required in the database are blank -->
           <md-button :disabled="errors.any() || !isComplete" class="md-raised md-primary"
             @click="submit(file._id, file.data[file.data.length - 1])"
           >Submit</md-button>
@@ -83,24 +84,26 @@ export default {
         const fileId = currentUrl[2];
         this.$axios.get(`http://localhost:3000/files/${fileId}`).then(response => {
             this.file = response.data;
+            // gets the selected file from the database using the id passed in the url from the dashboard
         });
     },
     methods: {
         isComplete() {
             return this.title && this.version_number && this.version_author
-    && this.keywords_tags && this.file_size;
+    && this.keywords_tags && this.file_size; 
+    // basic validation for the submit buttons, checks to see if each row has information 
         },
-        cancel() {
+        cancel() { // simple redirects
             window.location.href = '/dash';
         },
-        del(fileId) {
+        del(fileId) { // deletes the given file that the user is editing 
             this.$axios.delete(`http://localhost:3000/files/${fileId}`, {
             })
                 .then(response => {
                     window.location.href = '/dash';
                 });
         },
-        submit(fileId, edited) {
+        submit(fileId, edited) { // submits to the database the file and the new editied information
             this.$axios.put(`http://localhost:3000/files/${fileId}`, {
                 title: edited.title,
                 version_number: edited.version_number,
@@ -108,7 +111,8 @@ export default {
                 version_date: edited.version_date,
                 keywords_tags: edited.keywords_tags,
                 file_size: edited.file_size,
-            })
+                
+                })
                 .then(response => {
                     window.location.href = '/dash/';
                 })

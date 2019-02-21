@@ -6,7 +6,6 @@ import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/default.css';
 import VeeValidate from 'vee-validate';
 
-
 import Axios from 'axios';
 import Login from '../components/login.vue';
 import dash from '../views/dash.vue';
@@ -18,14 +17,11 @@ import addFile from '../views/addFile.vue';
 
 Vue.use(VeeValidate);
 
-
 Vue.prototype.$axios = Axios;
 
 Vue.use(VueMaterial);
 
-
 Vue.use(Router);
-
 
 export const router = new Router({
     mode: 'history',

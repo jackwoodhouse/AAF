@@ -38,7 +38,7 @@ export default {
             selected: {},
         };
     },
-    mounted() {
+    mounted() { // simple display of all user information in the database
         this.$axios
             .get('http://localhost:3000/User')
             .then((response) => {
@@ -49,7 +49,7 @@ export default {
         dash() {
             window.location.href = '/dash';
         },
-        onSelect(user) {
+        onSelect(user) { // redirects the user edit page with the specific user 
             this.selected = user;
             window.location.href = `/editUser/${user}`;
         },

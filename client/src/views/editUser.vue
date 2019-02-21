@@ -31,13 +31,8 @@
             <md-input type="number" enabled v-model="user.phone"></md-input>
           </md-field>
         </md-content>
-      
           <md-button class="md-raised md-accent" @click="del(user._id)">Delete File</md-button>
-      
-
-       
           <md-button class="md-raised md-accent" @click="cancel()">Cancel</md-button>
-        
       </form>
   </md-card>
   </div>
@@ -55,17 +50,16 @@ export default {
   mounted() {
     const currentUrl = window.location.pathname.split("/");
     const userId = currentUrl[2];
-
-    console.log(userId);
     this.$axios.get(`http://localhost:3000/User/${userId}`).then(response => {
       this.user = response.data;
+      // gets the user information using the id passed in the url from the dashboard
     });
   },
-    methods: {
+    methods: { // simple redirects through buttons
         cancel(user) {
           window.location.href = '/users';
       },
-        del(userId) {
+        del(userId) { // deletes the selected user 
           this.$axios
                 .delete(`http://localhost:3000/User/${userId}`, {})
                 .then(response => {

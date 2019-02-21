@@ -94,18 +94,24 @@ export default {
               version_author: newFile.version_author,
               version_date: newFile.version_date,
               keywords_tags: newFile.keywords_tags,
-              file_size: newFile.file_size
+              file_size: newFile.file_size,
             })
             .then(response => {
-              window.location.href = `/addFile/`;
+              window.location.href = '/addFile/';
             })
     },
     cancel() {
             window.location.href = '/dash';
         },
     isComplete() {
-            return this.name && this.creator && this.mime_type && this.title && this.version_number && this.version_author
-    && this.keywords_tags && this.file_size;
+            return this.name
+            && this.creator
+            && this.mime_type
+            && this.title
+            && this.version_number
+            && this.version_author
+            && this.keywords_tags
+            && this.file_size;
         },
   }
 };

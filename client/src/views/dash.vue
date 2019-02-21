@@ -1,6 +1,5 @@
 
 <template>
-
   <div class="files">
     <md-card>
       <md-toolbar class="md-accent" md-elevation="1">
@@ -19,8 +18,8 @@
         <md-table-head>File Type</md-table-head>
         <md-table-head>Version Number</md-table-head>
       </md-table-row>
-
-      <md-table-row md-selectable="single" class="files"
+      <!-- this displays all the files returned from the get in mounted and allows it to be searchable with filteredLists-->
+      <md-table-row md-selectable="single" class="files" 
       v-for="file in filteredLists" :key="file._id" @click="onSelect(file._id)" >
         <md-table-cell>{{ file._id }}</md-table-cell>
         <md-table-cell>{{ file.name }}</md-table-cell>
@@ -29,12 +28,11 @@
         <md-table-cell>{{ file.mime_type }}</md-table-cell>
         <md-table-cell>{{ file.data[file.data.length - 1].version_number }}</md-table-cell>
       </md-table-row>
-    </md-table>
+  </md-table>
 
     <md-card>
       <md-toolbar>
       <h3 class="md-title" style="flex: 1"></h3>
-      
       <md-button class="md-raised md-primary" @click="addFile()">Add file </md-button>
       <md-button class="md-raised md-primary" @click="logout()">Logout </md-button>
       </md-toolbar>
@@ -42,7 +40,6 @@
 
   </div>
 </template>
-
 
 <script>
 
@@ -56,32 +53,33 @@ export default {
         };
     },
     mounted() {
-        this.$axios.get("http://localhost:3000/Files")
+        this.$axios.get("http://localhost:3000/Files") // return all files from database
             .then(response => {
                 this.files = response.data;
             });
     },
-    methods: {
+    methods: { // simple navigation buttons
         users() {
             window.location.href = '/users';
         },
         logout() {
-            window.location.href = '/';
+            window.location.href = '/'; 
         },
         addFile() {
             window.location.href = '/addFile';
         },
         onSelect(file) {
             this.selected = file;
-            window.location.href = `/versionInfo/${file}`;
+            window.location.href = `/versionInfo/${file}`; 
+            // when the users selects a file it redirects to the page user the fileId
         },
 
     },
     computed: {
-      filteredLists() {
+      filteredLists() { // searches the list of files for user entered data
         return this.files.filter(file => {
-          return (
-          (!file.name) && (!this.search.toLowerCase())
+          return ( // this function allows for search by file name, creator and file type
+          (!file.name) && (!this.search.toLowerCase()) 
           || (file.name) && (file.name.toLowerCase().includes(this.search.toLowerCase()))
           || (!file.creator) && (!this.search.toLowerCase())
           || (file.creator) && (file.creator.toLowerCase().includes(this.search.toLowerCase()))
