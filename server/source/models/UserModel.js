@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
 
-export const UserSchema = new mongoose.Schema({
+export const UserSchema = new mongoose.Schema({ // create user schema for database
     // maybe make this an array
     username: {
         type: String,
         unique: true,
-        required: 'enter a username',
+        required: 'enter a username', // certain db elements are required for use in the GUI
     },
     password: {
         type: String,

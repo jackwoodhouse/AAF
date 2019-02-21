@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 
 export const FileSchema = new mongoose.Schema({
-
+    // create database model
     name: {
         type: String,
-        required: 'Enter a file name',
+        required: 'Enter a file name', // certain db elements are required for use in the GUI
     },
     creator: {
         type: String,
@@ -19,7 +19,7 @@ export const FileSchema = new mongoose.Schema({
         required: 'Enter a file type',
     },
     data:
-    [
+    [ // create an array for use when wanting to add version information and display
         {
             title: {
                 type: String,

@@ -4,7 +4,7 @@
   <div class="files">
     <md-card>
       <md-toolbar class="md-accent" md-elevation="1">
-      <h3 align="left" class="md-title" style="flex: 1"> DashBoard </h3> 
+      <h3 align="left" class="md-title" style="flex: 1"> DashBoard </h3>
       <input type="text" v-model="search" placeholder="Search title.."/>
       <md-button class="md-raised md-primary" @click="users()">Users </md-button>
       </md-toolbar>
@@ -78,20 +78,18 @@ export default {
 
     },
     computed: {
-    filteredLists() {
-      return this.files.filter(file => {
-        return (
-          (!file.name) && (!this.search.toLowerCase()) ||
-          (file.name) && (file.name.toLowerCase().includes(this.search.toLowerCase())) ||
-
-          (!file.creator) && (!this.search.toLowerCase()) ||
-          (file.creator) && (file.creator.toLowerCase().includes(this.search.toLowerCase())) ||
-          
-          (!file.mime_type) && (!this.search.toLowerCase()) ||
-          (file.mime_type) && (file.mime_type.toLowerCase().includes(this.search.toLowerCase())))
-      })
-    }
-  },
+      filteredLists() {
+        return this.files.filter(file => {
+          return (
+          (!file.name) && (!this.search.toLowerCase())
+          || (file.name) && (file.name.toLowerCase().includes(this.search.toLowerCase()))
+          || (!file.creator) && (!this.search.toLowerCase())
+          || (file.creator) && (file.creator.toLowerCase().includes(this.search.toLowerCase()))
+          || (!file.mime_type) && (!this.search.toLowerCase())
+          || (file.mime_type) && (file.mime_type.toLowerCase().includes(this.search.toLowerCase())));
+          });
+        },
+    },
 };
 
 </script>

@@ -82,7 +82,8 @@ export const updateFile = (req, res) => {
                 keywords_tags: req.body.keywords_tags,
                 file_size: req.body.file_size,
             };
-            File.findOneAndUpdate({ _id: req.params.fileId }, new File(fileToUpdate), { new: true },
+            File.findOneAndUpdate({ _id: req.params.fileId },
+                new File(fileToUpdate), { new: true },
                 (err2, updatedFile) => {
                     if (err2) {
                         res.send(err2);

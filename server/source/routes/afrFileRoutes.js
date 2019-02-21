@@ -1,4 +1,4 @@
-import {
+import { // imports all methods from file controller
     addNewFile,
     getFiles,
     deleteAllFiles,
@@ -20,7 +20,7 @@ const fileRoutes = (app) => {
     app.route('/files/:fileId')
         .get(getFileWithId)
         .put(updateFile)
-        .delete(deleteFile);
+        .delete(deleteFile); 
 };
 
 export default fileRoutes;

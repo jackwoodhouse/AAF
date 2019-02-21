@@ -1,4 +1,4 @@
-import {
+import { // import methods from user controller
     addNewUser,
     getUser,
     getUserWithID,
@@ -6,7 +6,7 @@ import {
     deleteUser,
 } from '../controllers/UserController';
 
-const passport = require('passport');
+const passport = require('passport'); // passport would be used for user authentication
 require('../config/passport')(passport);
 
 const routes = (app) => {
@@ -15,13 +15,13 @@ const routes = (app) => {
             console.log(`Request from: ${req.originalUrl}`);
             console.log(`Request type: ${req.method}`);
             next();
-        }, getUser)
-        .post(addNewUser);
+        }, getUser) // get all files
+        .post(addNewUser); // add new user to db
 
     app.route('/user/:userId')
-        .get(getUserWithID)
+        .get(getUserWithID) // get specific user
         .put(updateUser)
-        .delete(deleteUser);
+        .delete(deleteUser); // delete specific user
 };
 
 export default routes;
