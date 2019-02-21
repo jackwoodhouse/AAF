@@ -83,9 +83,11 @@ export default {
         return (
           (!file.name) && (!this.search.toLowerCase()) ||
           (file.name) && (file.name.toLowerCase().includes(this.search.toLowerCase())) ||
+
           (!file.creator) && (!this.search.toLowerCase()) ||
           (file.creator) && (file.creator.toLowerCase().includes(this.search.toLowerCase())) ||
-          (!file.creator) && (!this.search.toLowerCase()) ||
+          
+          (!file.mime_type) && (!this.search.toLowerCase()) ||
           (file.mime_type) && (file.mime_type.toLowerCase().includes(this.search.toLowerCase())))
       })
     }
