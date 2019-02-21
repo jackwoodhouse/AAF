@@ -5,8 +5,8 @@
     <md-card>
       <md-toolbar class="md-accent" md-elevation="1">
       <h3 align="left" class="md-title" style="flex: 1"> DashBoard </h3> 
+      <input type="text" v-model="search" placeholder="Search title.."/>
       <md-button class="md-raised md-primary" @click="users()">Users </md-button>
-      <md-button class="md-raised md-primary" @click="addFile()">Add file </md-button>
       </md-toolbar>
     </md-card>
 
@@ -21,7 +21,7 @@
       </md-table-row>
 
       <md-table-row md-selectable="single" class="files"
-      v-for="file in files" :key="file._id" @click="onSelect(file._id)" >
+      v-for="file in filteredLists" :key="file._id" @click="onSelect(file._id)" >
         <md-table-cell>{{ file._id }}</md-table-cell>
         <md-table-cell>{{ file.name }}</md-table-cell>
         <md-table-cell>{{ file.creator }}</md-table-cell>
@@ -34,6 +34,8 @@
     <md-card>
       <md-toolbar>
       <h3 class="md-title" style="flex: 1"></h3>
+      
+      <md-button class="md-raised md-primary" @click="addFile()">Add file </md-button>
       <md-button class="md-raised md-primary" @click="logout()">Logout </md-button>
       </md-toolbar>
     </md-card>
@@ -43,12 +45,14 @@
 
 
 <script>
+
 export default {
     name: 'dash',
     data() {
         return {
-            files: null,
+            files: [],
             selected: {},
+            search: '',
         };
     },
     mounted() {
@@ -71,7 +75,21 @@ export default {
             this.selected = file;
             window.location.href = `/versionInfo/${file}`;
         },
+
     },
+    computed: {
+    filteredLists() {
+      return this.files.filter(file => {
+        return (
+          (!file.name) && (!this.search.toLowerCase()) ||
+          (file.name) && (file.name.toLowerCase().includes(this.search.toLowerCase())) ||
+          (!file.creator) && (!this.search.toLowerCase()) ||
+          (file.creator) && (file.creator.toLowerCase().includes(this.search.toLowerCase())) ||
+          (!file.creator) && (!this.search.toLowerCase()) ||
+          (file.mime_type) && (file.mime_type.toLowerCase().includes(this.search.toLowerCase())))
+      })
+    }
+  },
 };
 
 </script>

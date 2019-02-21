@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { describe, it, expect } from 'chai';
+import { expect } from 'chai';
 
-const { UserSchema } = require('../source/models/UserModel.js');
+const { UserSchema } = require('../source/models/UserModel');
 
 const User = mongoose.model('User', UserSchema);
 
