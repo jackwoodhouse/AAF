@@ -97,7 +97,7 @@ export default {
               file_size: newFile.file_size,
             })
             .then(response => {
-              window.location.href = '/addFile/';
+              window.location.href = '/dash/';
             })
     },
     cancel() {
